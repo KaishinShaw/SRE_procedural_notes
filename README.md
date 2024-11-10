@@ -11,6 +11,7 @@ Here's a quick overview of tasks that have been completed and what's still in pr
 - [ ] Install Ubuntu and minikube on VMware in Windows
 - [x] Configure a private image repository on Alibaba Cloud
 - [x] Create GitHub project notes
+
 - [ ]Domestic Docker image server solution that can be directly connected.
 - [ ]Building a docker image repository that can be accessed domestically
 
