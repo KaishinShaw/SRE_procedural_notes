@@ -1011,7 +1011,7 @@ start_period：为需要时间引导的容器提供的初始化时间，在此�
 
 其中interval、timeout和start_period都被指定为持续时间（durations）。start_period是在3.4版的配置文件格式中加入。test必须是字符串或JSON数组格式。如果是JSON数组格式，第一项必须是NONE、CMD或CMD-SHELL其中之一。如果是字符串格式，则等效于指定CMD-SHELL后跟该字符串的JSON数组格式。
 
-例如以下示例，指定检测方法为访问http://localhost，健康检查间隔时间为1m30s，健康检查超时时间为10s，重试次数为3，启动容器后等待健康检查的初始化时间为40s：
+例如以下示例，指定检测方法为访问 http://localhost ，健康检查间隔时间为1m30s，健康检查超时时间为10s，重试次数为3，启动容器后等待健康检查的初始化时间为40s：
 
 ```         
 healthcheck:
