@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+      <html lang="zh-CN">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/release/blogv2/dist/pc/css/detail_enter-2fe393ff58.min.css">
+        <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/kdoc_html_views-1a98987dfd.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/ck_htmledit_views-704d5b9767.css">
+        <style>
+          body {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+          }
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+          pre {
+            background-color: #e4dfdf;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+          }
+          code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+          }
+          blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+          }
+          table {
+            border-collapse: collapse;
+            width: 100%;
+          }
+          th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+        </style>
+      </head>
+      <body>
+          <div class="blog-content-box">
+            <div id="article_content" class="article_content clearfix">
+              <div id="content_views" class="htmledit_views">
+                
+                <!-- https://habit.blog.csdn.net/article/details/120920364 -->
+<!-- https://habit.blog.csdn.net/article/details/120920364  广义线性模型GLM、GLMM、LMM、MLM、GMM、GEE、广义线性模型GLM和广义线性混合模型的GLMM区别_gee、glmm和mlm分析卫生重复测量资料的效果比较-CSDN博客 --> 
+
+                    <h2 id="R%E8%AF%AD%E8%A8%80%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BGLM%E3%80%81GLMM%E3%80%81LMM%E3%80%81MLM%E3%80%81GMM%E3%80%81GEE%E3%80%81%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BGLM%E5%92%8C%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%E7%9A%84GLMM%E5%8C%BA%E5%88%AB">R语言广义线性模型GLM、GLMM、LMM、MLM、GMM、GEE、广义线性模型GLM和广义线性混合模型的GLMM区别</h2> 
+<p></p> 
+<p id="main-toc"><strong>目录</strong></p> 
+<p id="R%E8%AF%AD%E8%A8%80%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BGLM%E3%80%81GLMM%E3%80%81LMM%E3%80%81MLM%E3%80%81GMM%E3%80%81GEE%E3%80%81%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BGLM%E5%92%8C%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%E7%9A%84GLMM%E5%8C%BA%E5%88%AB-toc" style="margin-left:0px;"><a href="#R%E8%AF%AD%E8%A8%80%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BGLM%E3%80%81GLMM%E3%80%81LMM%E3%80%81MLM%E3%80%81GMM%E3%80%81GEE%E3%80%81%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BGLM%E5%92%8C%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%E7%9A%84GLMM%E5%8C%BA%E5%88%AB" rel="nofollow" title="R语言广义线性模型GLM、GLMM、LMM、MLM、GMM、GEE、广义线性模型GLM和广义线性混合模型的GLMM区别">R语言广义线性模型GLM、GLMM、LMM、MLM、GMM、GEE、广义线性模型GLM和广义线性混合模型的GLMM区别</a></p> 
+<p id="%23%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%EF%BC%88generalized%20linear%20model%2C%20GLM)-toc" style="margin-left:40px;"><a href="#%23%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%EF%BC%88generalized%20linear%20model%2C%20GLM%29" rel="nofollow" title="#广义线性模型（generalized linear model, GLM)">#广义线性模型（generalized linear model, GLM)</a></p> 
+<p id="%23%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%EF%BC%88GLMM%20%EF%BC%8Cgeneralized%20linear%20mixed%20model%EF%BC%89-toc" style="margin-left:40px;"><a href="#%23%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%EF%BC%88GLMM%20%EF%BC%8Cgeneralized%20linear%20mixed%20model%EF%BC%89" rel="nofollow" title="#广义线性混合模型（GLMM ，generalized linear mixed model）">#广义线性混合模型（GLMM ，generalized linear mixed model）</a></p> 
+<p id="%23%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8BLMM-toc" style="margin-left:40px;"><a href="#%23%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8BLMM" rel="nofollow" title="#线性混合模型LMM">#线性混合模型LMM</a></p> 
+<p id="%23%E5%A4%9A%E6%B0%B4%E5%B9%B3%E6%A8%A1%E5%9E%8BMLM-toc" style="margin-left:40px;"><a href="#%23%E5%A4%9A%E6%B0%B4%E5%B9%B3%E6%A8%A1%E5%9E%8BMLM" rel="nofollow" title="#多水平模型MLM">#多水平模型MLM</a></p> 
+<p id="%23%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%20GMM-toc" style="margin-left:40px;"><a href="#%23%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%20GMM" rel="nofollow" title="#高斯混合模型 GMM">#高斯混合模型 GMM</a></p> 
+<p id="%23%E5%B9%BF%E4%B9%89%E4%BC%B0%E8%AE%A1%E6%96%B9%E7%A8%8B%20GEE-toc" style="margin-left:40px;"><a href="#%23%E5%B9%BF%E4%B9%89%E4%BC%B0%E8%AE%A1%E6%96%B9%E7%A8%8B%20GEE" rel="nofollow" title="#广义估计方程 GEE">#广义估计方程 GEE</a></p> 
+<p id="%23%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%EF%BC%88GLM%EF%BC%8Cgeneralized%20linear%20model%EF%BC%89%E5%92%8C%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%EF%BC%88GLMM%20%EF%BC%8Cgeneralized%20linear%20mixed%20model%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB-toc" style="margin-left:40px;"><a href="#%23%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%EF%BC%88GLM%EF%BC%8Cgeneralized%20linear%20model%EF%BC%89%E5%92%8C%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%EF%BC%88GLMM%20%EF%BC%8Cgeneralized%20linear%20mixed%20model%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB" rel="nofollow" title="#广义线性模型（GLM，generalized linear model）和广义线性混合模型（GLMM ，generalized linear mixed model）的区别">#广义线性模型（GLM，generalized linear model）和广义线性混合模型（GLMM ，generalized linear mixed model）的区别</a></p> 
+<hr id="hr-toc"> 
+<p><img alt="" src="http://apic.todo6.com/app/operate/csdn/proxy?url=https%3A%2F%2Fi-blog.csdnimg.cn%2Fblog_migrate%2F5685025b7626e33b1fa88bb9cc663dab.png"></p> 
+<p></p> 
+<h3 id="%23%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%EF%BC%88generalized%20linear%20model%2C%20GLM)">#广义线性模型（generalized linear model, GLM)</h3> 
+<p>广义线性模型（generalized linear model, GLM)是简单最小二乘回归（OLS)的扩展，在OLS的假设中，响应变量是连续数值数据且服从正态分布，而且响应变量期望值与预测变量之间的关系是线性关系。而广义线性模型则放宽其假设，首先响应变量可以是正整数或分类数据，其分布为某指数分布族。其次响应变量期望值的函数（连接函数）与预测变量之间的关系为线性关系。因此在进行GLM建模时，需要指定分布类型和连接函数。<br> &nbsp;<br> 在R中通常使用glm函数构造广义线性模型，其中分布参数包括了binomaial（两项分布）、gaussian（正态分布）、gamma（伽马分布）、poisson(泊松分布)等。和lm函数类似，glm的建模结果可以通过下述的泛型函数进行二次处理，如summary()、coef()、confint()、residuals()、anova()、plot()、predict()</p> 
+<p>GLM 可以分解为 Random Component、System Component 和 Link Function 三个部分。Random Component 为残差部分，取决于因变量的分布；System Component 为预测部分，又称 linear predictor，是拟合的关键；Link Function 为连接变化函数，用于将指数分布族转化成正态分布，或者说，对预测结果进行非线性映射（建立 linear predictor与 label 之间的变换关系），是LM成长为GLM的关键环节。</p> 
+<p>需要强调的是，link function 是从 label 映射到 linear predictor的过程，link function的反函数称为响应函数 response function。响应函数 把 linear predictor 直接映射到了预测目标 label。较常见的link function如 logit函数（又称log-odds）；较常用的响应函数如 logistic（又称sigmoid，是二分类中的相应函数）和 softmax（是sigmoid的扩展形式，用于多分类问题），这两个都是 logit 的反函数。</p> 
+<p></p> 
+<h3 id="%23%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%EF%BC%88GLMM%20%EF%BC%8Cgeneralized%20linear%20mixed%20model%EF%BC%89">#广义线性混合模型（GLMM ，generalized linear mixed model）</h3> 
+<p>广义线性混合模型GLMM（Generalized Linear Mixed Model），是广义线性模型GLM 和线性混淆模型LMM （Linear Mixed Model）的扩展形式，于二十世纪九十年代被提出。GLMM因其借鉴了混合模型的思想，<strong>其在处理纵向数据（重复测量资料）</strong>时，被认为具有独特的优势。GLMM不仅擅长处理重复测量资料，还可以用于任何层次结构的数据（因为本质上又是多水平模型）。</p> 
+<p>提到GLMM，有必要先介绍几个容易混淆的概念：GLM、LMM、MLM、GMM 和GEE。</p> 
+<h3><strong>混合模型（Mixture Model）</strong></h3> 
+<p>混合模型是一个可以用来表示在总体分布（distribution）中含有 K 个子分布的概率模型，换句话说，混合模型表示了观测数据在总体中的概率分布，它是一个由 K 个子分布组成的混合分布。混合模型不要求观测数据提供关于子分布的信息，来计算观测数据在总体分布中的概率。</p> 
+<h3 id="%23%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8BLMM">#线性混合模型LMM</h3> 
+<p><strong>线性混合模型是数据模型中一种重要的类别，它可以分析存在相关关系的数据，模型里面包含固定效应以及随机效应，随机效应描述的是在不同层次的不同水平中，各变量对总体观察变量的贡献。</strong></p> 
+<p><strong>线性混合模型LMM，又称混合线性模型MLM、混合模型MM、多水平模型MLM、随机系数模型RCM、等级线性模型HLM 等。首先看一下 Wiki上对混合模型MM的介绍：A mixed model (or more precisely mixed error-component model) is a statistical model containing both fixed effects and random effects. （注意：fixed在这里译为固定，不同于mixed混合）</strong><br><strong>混合模型擅长于处理纵向数据（重复测量数据）和有缺失的数据，并且往往优于ANOVA等方法。</strong><br><strong>在混合模型中，需要区分两个概念：random effects与 random errors。</strong></p> 
+<p><strong>[ 注意：切勿将固定效应狭义理解为主要变量，而应该是所有可能的解释变量（如分组变量和时间变量），包括这些变量之间的交互项。而随机效应则是假定的随机效应部分（这部分的意义应当从多水平模型的角度来理解了） ]</strong></p> 
+<p><strong>该模型为固定效应和随机效应的混合，且固定效应和随机效应均与响应变量为线性关系，因此称为线性混合模型。</strong></p> 
+<p>线性混合模型LMM，又称混合线性模型MLM、混合模型MM、多水平模型MLM、随机系数模型RCM、等级线性模型HLM 等。首先看一下 Wiki上对混合模型MM的介绍：A mixed model (or more precisely mixed error-component model) is a statistical model containing both fixed effects and random effects. （注意：fixed在这里译为固定，不同于mixed混合）</p> 
+<p>混合模型擅长于处理纵向数据（重复测量数据）和有缺失的数据，并且往往优于ANOVA等方法。</p> 
+<p>在混合模型中，需要区分两个概念：random effects与 random errors。</p> 
+<h3 id="%23%E5%A4%9A%E6%B0%B4%E5%B9%B3%E6%A8%A1%E5%9E%8BMLM"><br> #多水平模型MLM</h3> 
+<p>多水平模型其实和线性混合模型LMM是等价的，只是理解的角度不同而已。MLM是从模型组建的多个水平来理解，关注构建过程；LMM则仅关注模型构建的结果（固定效应部分+随机效应部分）。多水平模型可以分层表述，然后整合成一个公式（即等价于LMM的公式）。</p> 
+<h3 id="%23%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%20GMM">#高斯混合模型 GMM</h3> 
+<p>高斯混合模型可以看作是由 K 个单高斯模型组合而成的模型，这 K 个子模型是混合模型的隐变量（Hidden variable）。一般来说，一个混合模型可以使用任何概率分布，这里使用高斯混合模型是因为高斯分布具备很好的数学性质以及良好的计算性能。</p> 
+<p>举个不是特别稳妥的例子，比如我们现在有一组狗的样本数据，不同种类的狗，体型、颜色、长相各不相同，但都属于狗这个种类，此时单高斯模型可能不能很好的来描述这个分布，因为样本数据分布并不是一个单一的椭圆，所以用混合高斯分布可以更好的描述这个问题。</p> 
+<p>高斯混合模型GMM（Gaussian Mixed Model）指的是多个高斯分布函数的线性组合，理论上GMM可以拟合出任意类型的分布，通常用于解决同一集合下的数据包含多个不同的分布的情况（或者是同一类分布但参数不一样，或者是不同类型的分布，比如正态分布和伯努利分布）。</p> 
+<h3 id="%23%E5%B9%BF%E4%B9%89%E4%BC%B0%E8%AE%A1%E6%96%B9%E7%A8%8B%20GEE">#广义估计方程 GEE</h3> 
+<p>广义估计方程（generalized estimating equation, GEE）用于估计广义线性模型的参数（其中线性模型的结果之间可能存在未知的相关性）。于1986年由Liang和Zeger首次提出，是在广义线性模型和重复测量数据中，运用准似然估计方法估计参数的一种用于分析相关性数据的回归模型。</p> 
+<p></p> 
+<h3 id="%23%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%EF%BC%88GLM%EF%BC%8Cgeneralized%20linear%20model%EF%BC%89%E5%92%8C%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%EF%BC%88GLMM%20%EF%BC%8Cgeneralized%20linear%20mixed%20model%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB">#广义线性模型（GLM，generalized linear model）和广义线性混合模型（GLMM ，generalized linear mixed model）的区别</h3> 
+<p>GLM一般是指<strong> generalized linear model</strong> ，也就是广义线性模型；而非 <strong>general linear model</strong>，也就是一般线性模型；而GLMM （<strong>generalized linear mixed model</strong>）是广义线性混合模型。</p> 
+<p>广义线性模型GLM很简单，举个例子，药物的疗效和服用药物的剂量有关。这个相关性可能是多种多样的，可能是简单线性关系（发烧时吃一片药退烧0.1度，两片药退烧0.2度，以此类推；这种情况就是一般线性模型），也可能是比较复杂的其他关系，如指数关系（一片药退烧0.1度，两片药退烧0.4度），对数关系等等。这些复杂的关系一般都可以通过一系列数学变换变成线性关系，以此统称为广义线性模型。</p> 
+<p>广义线性混合模型GLMM比较复杂，GLM要求观测值误差是随机的，而GLMM则要求误差值并非随机，而是呈一定分布的。举个例子，我们认为疗效可能与服药时间相关，但是这个相关并不是简简单单的疗效随着服药时间的变化而改变。更可能的是疗效的随机波动的程度与服药时间有关。比如说，在早上10：00的时候，所有人基本上都处于半饱状态，此时吃药，相同剂量药物效果都差不多。但在中午的时候，有的人还没吃饭， 有的人吃过饭了，有的人喝了酒，结果酒精和药物起了反应，有的人喝了醋，醋又和药物起了另一种反应。显然，中午吃药会导致药物疗效的随机误差非常大。这种疗效的随机误差（而非疗效本身）随着时间的变化而变化，并呈一定分布的情况，必须用广义线性混合模型了。</p> 
+<p></p> 
+<p>参考：广义线性模型（GLM）和广义线性混合模型（GLMM）怎么区分使用呢？</p> 
+<p>参考：<strong>generalized linear model</strong>&nbsp;</p> 
+<p>参考：<strong>generalized linear mixed model</strong></p> 
+<p><strong>参考：</strong>广义线性模型（GLM）</p> 
+<p>参考：高斯混合模型（GMM）</p>
+                
+              </div>
+              </div>
+          </div>
+      </body>
+      </html>
