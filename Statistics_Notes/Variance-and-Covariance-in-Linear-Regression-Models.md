@@ -55,10 +55,13 @@ $$ = \frac{\sigma^2}{\sum_{i=1}^n (x_i - \bar{x})^2} $$
 
 $$ Y = X\beta + \epsilon $$
 
-其中： - $Y$ 是 $n \times 1$ 的响应变量向量。 - $X$ 是 $n \times p$
-的设计矩阵，其中包含了解释变量。 - $\beta$ 是 $p \times 1$
-的参数向量。 - $\epsilon$ 是 $n \times 1$ 的误差向量，假设
-$\epsilon \sim N(0, \sigma^2 I)$。
+其中：
+
+-   $Y$ 是 $n \times 1$ 的响应变量向量。
+-   $X$ 是 $n \times p$的设计矩阵，其中包含了解释变量。
+-   $\beta$ 是 $p \times 1$的参数向量。
+-   $\epsilon$ 是 $n \times 1$
+    的误差向量，假设$\epsilon \sim N(0, \sigma^2 I)$。
 
 ### 参数估计
 
