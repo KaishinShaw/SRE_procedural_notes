@@ -15,7 +15,6 @@
 -   Julia 1.5.0+ 默认使用官方服务器 `pkg.julialang.org`
 -   国内服务器可能自动导向北京/上海/广州节点（由南科大与华为提供支持）
 -   国内官方服务器带宽限制为 **5M**，高校镜像站体验更佳
--   同元服务器与社区镜像存在差异（详见[说明](https://releases.tongyuan.cc/juliapkg/original)）
 
 ## PkgServer 使用说明
 
