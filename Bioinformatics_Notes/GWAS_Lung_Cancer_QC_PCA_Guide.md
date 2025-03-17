@@ -165,7 +165,7 @@ eigenvec$IID <- fam$V2
 # eigenvec <- merge(eigenvec, population_info, by = c("FID", "IID"))
 
 # 绘制PC1 vs PC2
-ggplot(eigenvec, aes(x = `2`, y = `3`, color = FID)) +  # 假设FID包含人群信息
+ggplot(eigenvec, aes(x = PC1, y = PC2, color = FID)) +  # 假设FID包含人群信息
   geom_point() +
   xlab("PC1") +
   ylab("PC2") +
