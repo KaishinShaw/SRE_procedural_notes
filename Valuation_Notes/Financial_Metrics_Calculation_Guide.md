@@ -163,7 +163,7 @@
 
 -   **公式**：\
     $$
-    \text{Cash Ratio} = \frac{\text{Cash \& Equivalents}}{\text{Current Liabilities}}
+    \text{Cash Ratio} = \frac{\text{Cash & Equivalents}}{\text{Current Liabilities}}
     $$
 -   **意义**：最保守的短期偿债能力指标，只考虑现金与等价物。\
 -   **判断**：
