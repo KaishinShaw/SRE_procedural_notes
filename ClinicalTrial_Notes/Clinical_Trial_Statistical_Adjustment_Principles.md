@@ -40,7 +40,6 @@ proc glm;
 
 | 特征维度 | 判定标准                 |
 |----------|--------------------------|
-| 循证依据 | ≥3篇高分文献明确报道     |
 | 机制关联 | 病理生理通路关键节点指标 |
 | 临床共识 | CSCO/NCCN指南推荐参数    |
 
@@ -128,10 +127,7 @@ graph TD
 ### 📚 参考文献速查
 
 -   ICH E9(R1)指导原则\
-    第十七章第三节：协变量调整的监管要求\
--   NEJM统计报告标准\
-    2021年更新版Table 2中的模型透明度条款\
 -   FDA CDER技术指南\
-    Adjusting for Covariates in Clinical Trials (2020 Draft)\
+    Adjusting for Covariates in Randomized Clinical Trials for Drugs and Biological Products\
 
 **实践警示**：所有调整操作必须通过独立统计师的代码验证，并在附录公示完整的SAS输出结果（包括Type III SS分析表）。
