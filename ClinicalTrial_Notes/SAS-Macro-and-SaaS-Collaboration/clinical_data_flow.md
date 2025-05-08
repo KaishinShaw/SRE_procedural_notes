@@ -13,7 +13,9 @@ graph TD
         Viz["Container: Interactive Visualization (R-Shiny/Python-Dash)"]
 
         Ingest -- Validated Data --> PreProc
-        PreProc -- Analysis Datasets --> Model        Model --        Model --        Model --        Model -- Model Results --> Report
+        PreProc -- Analysis Datasets --> Model
+        PreProc -- Analysis Datasets --> Report
+        Model -- Model Results --> Report
         Report -- Draft TLGs --> QC
         QC -- QC'd TLGs --> EndUser["Output/Review"]
         NLP -- Extracted Features --> PreProc
