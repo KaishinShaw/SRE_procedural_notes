@@ -56,7 +56,7 @@ The hidden assumption is:
 
 > **The headphone is being treated as a constant resistor.**
 
-That is the critical mistake. A real headphone is not just "$16\,\Omega$" in the same sense that a laboratory resistor is $16\,\Omega$. The value printed on the headphone is only a **nominal impedance**, not a complete description of its behavior.
+That is the critical mistake. A real headphone is not just 16Ω in the same sense that a laboratory resistor is 16Ω. The value printed on the headphone is only a **nominal impedance**, not a complete description of its behavior.
 
 ### 2.3 Linearity Does Not Mean Frequency Neutrality
 
@@ -685,7 +685,7 @@ The introductory claim in the case study is **not generally correct**.
 The correct engineering conclusions are:
 
 1. A real headphone or loudspeaker is not a constant resistor; it is an electroacoustic transducer with frequency-dependent impedance.
-2. A series resistor and a transducer form a voltage divider whose transfer function is $$ H(j\omega )=\frac{Z_L(j\omega )}{Z_s+Z_L(j\omega )} $$
+2. A series resistor and a transducer form a voltage divider whose transfer function is $ H(j\omega )=\frac{Z_L(j\omega )}{Z_s+Z_L(j\omega )} $
 3. If the load impedance varies with frequency, the delivered voltage also varies with frequency.
 4. Therefore, a series resistor may alter tonal balance rather than acting as a perfectly neutral volume control.
 5. Higher source impedance also reduces electrical damping, wastes power, and may worsen distortion in practical systems.
