@@ -14,7 +14,7 @@ A common claim in audio hobbyist discussions is that adding a series resistor to
 
 ## 1. Introductory Case Study
 
-> An audio enthusiast modifies a standard 3.5 mm headphone cable by soldering a \(16\,\Omega\) resistor in series with each signal path. The enthusiast argues:
+> An audio enthusiast modifies a standard 3.5 mm headphone cable by soldering a $16\,\Omega$ resistor in series with each signal path. The enthusiast argues:
 >
 > *"The resistor is linear and passive, so it should attenuate the signal equally at all audio frequencies. Therefore, it should reduce loudness without changing tonal balance."*
 >
@@ -44,7 +44,7 @@ This case is pedagogically valuable because it exposes several important enginee
 
 In elementary DC circuits:
 
-- a resistor has a fixed resistance \(R\);
+- a resistor has a fixed resistance $R$;
 - a series resistor reduces current;
 - if the load is also a resistor, the circuit behaves as a simple voltage divider.
 
@@ -56,7 +56,7 @@ The hidden assumption is:
 
 > **The headphone is being treated as a constant resistor.**
 
-That is the critical mistake. A real headphone is not just "\(16\,\Omega\)" in the same sense that a laboratory resistor is \(16\,\Omega\). The value printed on the headphone is only a **nominal impedance**, not a complete description of its behavior.
+That is the critical mistake. A real headphone is not just "$16\,\Omega$" in the same sense that a laboratory resistor is $16\,\Omega$. The value printed on the headphone is only a **nominal impedance**, not a complete description of its behavior.
 
 ### 2.3 Linearity Does Not Mean Frequency Neutrality
 
@@ -79,46 +79,46 @@ To analyze audio interfaces correctly, we use sinusoidal steady-state AC analysi
 
 For an ideal resistor:
 
-\[
+$$
 Z_R = R
-\]
+$$
 
-where \(R\) is real-valued and frequency independent.
+where $R$ is real-valued and frequency independent.
 
 ### 3.2 Reactance
 
 For an inductor:
 
-\[
+$$
 Z_L = j\omega L
-\]
+$$
 
 For a capacitor:
 
-\[
+$$
 Z_C = \frac{1}{j\omega C}
-\]
+$$
 
 where:
 
-- \(j = \sqrt{-1}\)
-- \(\omega = 2\pi f\)
-- \(f\) is frequency in hertz
+- $j = \sqrt{-1}$
+- $\omega = 2\pi f$
+- $f$ is frequency in hertz
 
 ### 3.3 Impedance
 
 The general impedance is written as:
 
-\[
+$$
 Z(j\omega) = R + jX
-\]
+$$
 
 where:
 
-- \(R\) is the real part
-- \(X\) is the reactance
+- $R$ is the real part
+- $X$ is the reactance
 
-In many audio problems, what matters is not just the magnitude \(|Z|\), but the full **complex impedance**, including phase.
+In many audio problems, what matters is not just the magnitude $|Z|$, but the full **complex impedance**, including phase.
 
 ### 3.4 Why Impedance Matters in Audio
 
@@ -132,50 +132,50 @@ This is the core reason the series-resistor claim fails.
 
 A practical amplifier output can be modeled as a **Thévenin source**:
 
-- an ideal voltage source \(V_s\)
-- in series with an output impedance \(Z_s\)
+- an ideal voltage source $V_s$
+- in series with an output impedance $Z_s$
 
 This is one of the most useful abstractions in analog engineering.
 
 ### 4.1 Source Current
 
-If the load is \(Z_L(j\omega)\), then the current is:
+If the load is $Z_L(j\omega)$, then the current is:
 
-\[
+$$
 I(j\omega) = \frac{V_s(j\omega)}{Z_s + Z_L(j\omega)}
-\]
+$$
 
 ### 4.2 Load Voltage
 
 The voltage across the load is:
 
-\[
+$$
 V_L(j\omega) = I(j\omega)\,Z_L(j\omega)
-\]
+$$
 
 Substituting for current gives:
 
-\[
+$$
 V_L(j\omega) = V_s(j\omega)\frac{Z_L(j\omega)}{Z_s + Z_L(j\omega)}
-\]
+$$
 
 So the transfer function is:
 
-\[
+$$
 H(j\omega) = \frac{V_L(j\omega)}{V_s(j\omega)} = \frac{Z_L(j\omega)}{Z_s + Z_L(j\omega)}
-\]
+$$
 
 This is the central equation of the lecture.
 
 ### 4.3 Special Case: Constant Resistive Load
 
-If \(Z_L(j\omega) = R_L\), where the load is a constant pure resistance:
+If $Z_L(j\omega) = R_L$, where the load is a constant pure resistance:
 
-\[
+$$
 H(j\omega) = \frac{R_L}{Z_s + R_L}
-\]
+$$
 
-If \(Z_s\) is also purely resistive and constant, the attenuation is frequency independent.
+If $Z_s$ is also purely resistive and constant, the attenuation is frequency independent.
 
 This is the **only** situation in which the hobbyist's claim is valid.
 
@@ -201,30 +201,30 @@ When current flows through the voice coil, a force is generated, the diaphragm m
 
 A simplified small-signal model may be written as:
 
-\[
+$$
 Z_{\text{drv}}(j\omega) = R_e + j\omega L_e + Z_m(j\omega)
-\]
+$$
 
 where:
 
-- \(R_e\) is the DC resistance of the voice coil
-- \(L_e\) is the voice-coil inductance
-- \(Z_m(j\omega)\) is the motional impedance reflected into the electrical domain
+- $R_e$ is the DC resistance of the voice coil
+- $L_e$ is the voice-coil inductance
+- $Z_m(j\omega)$ is the motional impedance reflected into the electrical domain
 
 A more explicit electromechanical form is:
 
-\[
+$$
 Z_{\text{drv}}(j\omega) =
 R_e + j\omega L_e +
 \frac{(Bl)^2}{R_{ms} + j\omega M_{ms} + \frac{1}{j\omega C_{ms}}}
-\]
+$$
 
 where:
 
-- \(Bl\) is the force factor
-- \(R_{ms}\) is mechanical damping
-- \(M_{ms}\) is moving mass
-- \(C_{ms}\) is mechanical compliance
+- $Bl$ is the force factor
+- $R_{ms}$ is mechanical damping
+- $M_{ms}$ is moving mass
+- $C_{ms}$ is mechanical compliance
 
 This model is approximate, but it captures the essential physics.
 
@@ -249,11 +249,11 @@ Therefore, the driver's impedance is not flat across frequency.
 
 Balanced-armature (BA) earphones are not an exception to the source-impedance rule. A BA driver is still an electro-mechano-acoustic transducer rather than a fixed resistor. Knowles describes the BA driver as a tiny reed balanced between magnets, with its motion transferred to a stiff diaphragm, while a JASA paper models the balanced-armature speaker as a coupled electromechanoacoustical system. Therefore, the same transfer-function logic used earlier in this lecture still applies:
 
-\[
+$$
 H(j\omega)=\frac{V_L(j\omega)}{V_s(j\omega)}=\frac{Z_L(j\omega)}{Z_s+Z_L(j\omega)}
-\]
+$$
 
-If the load impedance \(Z_L(j\omega)\) varies with frequency, then a series resistor or any nonzero source impedance can still alter the voltage delivered to the earphone as a function of frequency.
+If the load impedance $Z_L(j\omega)$ varies with frequency, then a series resistor or any nonzero source impedance can still alter the voltage delivered to the earphone as a function of frequency.
 
 ### 6.1 What Is Electrically Different About a BA Driver?
 
@@ -261,21 +261,21 @@ Compared with a moving-coil dynamic driver, a BA driver has a different physical
 
 ### 6.2 Single-BA, Multi-BA, and Hybrid IEMs Must Be Distinguished
 
-Not all BA earphones are electrically similar. Official product information shows a wide range of architectures and nominal impedances: Etymotic ER3XR is a **single-BA** design rated at **22 \(\Omega\) @ 1 kHz** and explicitly marketed as avoiding the added complexity of crossovers; Etymotic ER4SR is also **single-BA**, rated at **45 \(\Omega\) @ 1 kHz**; Shure AONIC 3 is a **single balanced-armature** model rated at **26 \(\Omega\) @ 1 kHz**; Shure AONIC 5 is a **triple balanced-armature** model rated at **36 \(\Omega\) @ 1 kHz**, with two woofers and a separate tweeter; and Shure AONIC 4 is a **hybrid** earphone using one dynamic driver plus one balanced-armature driver, rated at **7 \(\Omega\) @ 1 kHz**. Knowles also states that its TWFK series enables customized crossover systems for pro-audio in-ear applications. So "BA earphone" is not one electrical category but a family of topologies with substantially different interface behavior.
+Not all BA earphones are electrically similar. Official product information shows a wide range of architectures and nominal impedances: Etymotic ER3XR is a **single-BA** design rated at **22 Ω @ 1 kHz** and explicitly marketed as avoiding the added complexity of crossovers; Etymotic ER4SR is also **single-BA**, rated at **45 Ω @ 1 kHz**; Shure AONIC 3 is a **single balanced-armature** model rated at **26 Ω @ 1 kHz**; Shure AONIC 5 is a **triple balanced-armature** model rated at **36 Ω @ 1 kHz**, with two woofers and a separate tweeter; and Shure AONIC 4 is a **hybrid** earphone using one dynamic driver plus one balanced-armature driver, rated at **7 Ω @ 1 kHz**. Knowles also states that its TWFK series enables customized crossover systems for pro-audio in-ear applications. So "BA earphone" is not one electrical category but a family of topologies with substantially different interface behavior.
 
 ### 6.3 Why Multi-BA and Hybrid Earphones Can Be More Source-Impedance-Sensitive
 
 A reasonable engineering inference from the cited product architectures is that many **multi-BA** and **hybrid** earphones may be more sensitive to source impedance than a single-driver design, because the load seen by the amplifier may include multiple driver branches and crossover elements rather than a single transducer alone. A simplified abstraction for one possible multi-branch load is
 
-\[
+$$
 Z_L^{-1}(j\omega)=\sum_k \frac{1}{Z_{\mathrm{drv},k}(j\omega)+Z_{\mathrm{xo},k}(j\omega)}
-\]
+$$
 
-where each branch contains a driver and its associated crossover elements. As the load becomes more structured, the source-to-load transfer function becomes more dependent on \(Z_s\), and a series resistor may change not only the overall level but also the relative electrical balance between low-, mid-, and high-frequency branches. This is one reason why the phrase "a resistor just turns the volume down" is especially unsafe for multi-driver BA or hybrid IEMs.
+where each branch contains a driver and its associated crossover elements. As the load becomes more structured, the source-to-load transfer function becomes more dependent on $Z_s$, and a series resistor may change not only the overall level but also the relative electrical balance between low-, mid-, and high-frequency branches. This is one reason why the phrase "a resistor just turns the volume down" is especially unsafe for multi-driver BA or hybrid IEMs.
 
 ### 6.4 Practical Engineering Guidance for BA IEMs
 
-For BA earphones—especially low-impedance, multi-driver, or hybrid IEMs—the safest design rule is to keep source impedance very low. TI states that nonzero output impedance can cause some frequencies to be artificially attenuated or accentuated, and ADI explicitly recommends making the series output resistance \(R_S\) low from a performance perspective. This recommendation is consistent with current earphone-amplifier practice: Shure's SHA900 portable listening amplifier specifies **0.35 \(\Omega\)** output impedance, and TI's headphone-amplifier reference design reports a calculated closed-loop output impedance of about **0.0317 \(\Omega\)** at 1 kHz. If a series resistor is added for hot-plug protection, current limiting, or amplifier stability, it should be presented as a deliberate engineering trade-off rather than as an acoustically neutral attenuator.
+For BA earphones—especially low-impedance, multi-driver, or hybrid IEMs—the safest design rule is to keep source impedance very low. TI states that nonzero output impedance can cause some frequencies to be artificially attenuated or accentuated, and ADI explicitly recommends making the series output resistance $R_S$ low from a performance perspective. This recommendation is consistent with current earphone-amplifier practice: Shure's SHA900 portable listening amplifier specifies **0.35 Ω** output impedance, and TI's headphone-amplifier reference design reports a calculated closed-loop output impedance of about **0.0317 Ω** at 1 kHz. If a series resistor is added for hot-plug protection, current limiting, or amplifier stability, it should be presented as a deliberate engineering trade-off rather than as an acoustically neutral attenuator.
 
 ---
 
@@ -285,7 +285,7 @@ A dynamic headphone or loudspeaker often shows the following broad pattern:
 
 ### 7.1 Low-Frequency Region
 
-Near the fundamental mechanical resonance \(f_s\):
+Near the fundamental mechanical resonance $f_s$:
 
 - diaphragm motion is large;
 - back EMF increases;
@@ -302,29 +302,29 @@ Away from resonance:
 
 At higher frequencies:
 
-- the inductive term \(j\omega L_e\) becomes more important;
+- the inductive term $j\omega L_e$ becomes more important;
 - input impedance often rises again.
 
 ### 7.4 Important Engineering Caution
 
 The term **nominal impedance** is only a label. It does **not** mean the transducer behaves like a fixed resistor equal to that number at all frequencies.
 
-A headphone labeled as \(16\,\Omega\) may be close to that value over part of the midband, but it can be significantly higher near resonance and may rise again toward high frequencies.
+A headphone labeled as $16\,\Omega$ may be close to that value over part of the midband, but it can be significantly higher near resonance and may rise again toward high frequencies.
 
 ---
 
 ## 8. Returning to the Case Study: What the Series Resistor Actually Does
 
-Let the added series resistor be \(R_s = 16\,\Omega\).
-Let the headphone load be \(Z_L(j\omega)\).
+Let the added series resistor be $R_s = 16\,\Omega$.
+Let the headphone load be $Z_L(j\omega)$.
 
 Then the transfer function becomes
 
-\[
+$$
 H(j\omega) = \frac{Z_L(j\omega)}{16 + Z_L(j\omega)}
-\]
+$$
 
-where the \(16\) is treated as a real-valued resistance in ohms.
+where the $16$ is treated as a real-valued resistance in ohms.
 
 ### 8.1 Why the Attenuation Is Not Constant
 
@@ -336,47 +336,47 @@ Therefore, the resistor does **not** simply "remove the same amount" of signal a
 
 For intuition, suppose the load impedance magnitude behaves approximately as follows:
 
-- near \(1\,\text{kHz}\): \(|Z_L| \approx 16\,\Omega\)
-- near low-frequency resonance: \(|Z_L| \approx 32\,\Omega\)
-- at a higher frequency: \(|Z_L| \approx 24\,\Omega\)
+- near $1\,\text{kHz}$: $|Z_L| \approx 16\,\Omega$
+- near low-frequency resonance: $|Z_L| \approx 32\,\Omega$
+- at a higher frequency: $|Z_L| \approx 24\,\Omega$
 
 If we ignore phase for the moment and use a magnitude-only approximation:
 
 #### Midband
 
-\[
+$$
 |H| \approx \frac{16}{16+16} = 0.50
-\]
+$$
 
 So the voltage attenuation is
 
-\[
+$$
 20\log_{10}(0.50) \approx -6.02\,\text{dB}
-\]
+$$
 
 #### Resonance Region
 
-\[
+$$
 |H| \approx \frac{32}{16+32} = \frac{2}{3} \approx 0.667
-\]
+$$
 
 So the voltage attenuation is
 
-\[
+$$
 20\log_{10}(0.667) \approx -3.52\,\text{dB}
-\]
+$$
 
 #### Higher-Frequency Example
 
-\[
+$$
 |H| \approx \frac{24}{16+24} = 0.60
-\]
+$$
 
 So the voltage attenuation is
 
-\[
+$$
 20\log_{10}(0.60) \approx -4.44\,\text{dB}
-\]
+$$
 
 ### 8.3 Interpretation
 
@@ -405,21 +405,21 @@ The previous example used impedance magnitudes for intuition. Strictly speaking,
 
 ### 9.1 Exact Expression
 
-\[
+$$
 H(j\omega) = \frac{Z_L(j\omega)}{Z_s + Z_L(j\omega)}
-\]
+$$
 
 The magnitude response is:
 
-\[
+$$
 |H(j\omega)| = \left|\frac{Z_L(j\omega)}{Z_s + Z_L(j\omega)}\right|
-\]
+$$
 
 The phase response is:
 
-\[
+$$
 \angle H(j\omega) = \angle Z_L(j\omega) - \angle\bigl(Z_s + Z_L(j\omega)\bigr)
-\]
+$$
 
 ### 9.2 Why Phase Is Relevant
 
@@ -437,19 +437,19 @@ In many introductory discussions, only the magnitude effect is emphasized, but t
 
 A conventional high-quality headphone amplifier is usually designed to behave approximately as a **voltage source**, which means:
 
-\[
+$$
 |Z_s| \ll |Z_L(j\omega)|
-\]
+$$
 
 over the relevant frequency range.
 
 ### 10.1 Why Low Source Impedance Is Usually Preferred
 
-If \(Z_s\) is very small compared with \(Z_L(j\omega)\), then
+If $Z_s$ is very small compared with $Z_L(j\omega)$, then
 
-\[
+$$
 H(j\omega) \approx 1
-\]
+$$
 
 and the delivered voltage becomes relatively insensitive to variations in the load.
 
@@ -471,15 +471,15 @@ One of the most frequently discussed consequences of source impedance is **dampi
 
 In simplified engineering practice:
 
-\[
+$$
 DF = \frac{Z_{L,\text{nom}}}{Z_s}
-\]
+$$
 
 or, in a purely resistive approximation:
 
-\[
+$$
 DF = \frac{R_L}{R_s}
-\]
+$$
 
 ### 11.2 Physical Interpretation
 
@@ -514,23 +514,23 @@ A better statement is:
 
 ---
 
-## 12. Advanced Engineering Note: Source Resistance and Resonance \(Q\)
+## 12. Advanced Engineering Note: Source Resistance and Resonance $Q$
 
-For loudspeaker theory, added series resistance is often discussed using the electrical quality factor \(Q_{es}\).
+For loudspeaker theory, added series resistance is often discussed using the electrical quality factor $Q_{es}$.
 
-If external series resistance \(R_s\) is added to a driver with voice-coil resistance \(R_e\), a common approximation is
+If external series resistance $R_s$ is added to a driver with voice-coil resistance $R_e$, a common approximation is
 
-\[
+$$
 Q_{es}' = Q_{es}\left(1+\frac{R_s}{R_e}\right)
-\]
+$$
 
-This means the effective electrical \(Q\) increases as source resistance increases.
+This means the effective electrical $Q$ increases as source resistance increases.
 
-If the mechanical quality factor is \(Q_{ms}\), then the total quality factor becomes
+If the mechanical quality factor is $Q_{ms}$, then the total quality factor becomes
 
-\[
+$$
 Q_{ts}' = \frac{Q_{ms}Q_{es}'}{Q_{ms}+Q_{es}'}
-\]
+$$
 
 ### Interpretation
 
@@ -552,7 +552,7 @@ So far, we have mostly discussed small-signal linear theory. Real transducers ar
 
 In practice, several parameters may vary with operating point:
 
-- force factor \(Bl\)
+- force factor $Bl$
 - suspension compliance
 - voice-coil position in the magnetic gap
 - inductance with excursion
@@ -584,15 +584,15 @@ A series resistor does not merely reshape the transfer function. It also dissipa
 
 ### 14.1 Power in the Series Resistor
 
-\[
+$$
 P_R = I^2 R_s
-\]
+$$
 
 or, in RMS terms,
 
-\[
+$$
 P_R = I_{\text{rms}}^2 R_s
-\]
+$$
 
 ### 14.2 Engineering Consequences
 
@@ -670,7 +670,7 @@ For transparent reproduction, engineers typically prefer:
 | Misconception | Correction |
 |---|---|
 | A linear passive resistor must attenuate all frequencies equally. | Only if the load is frequency independent. The combined network can be linear and still frequency selective. |
-| A headphone labeled \(16\,\Omega\) behaves like a \(16\,\Omega\) resistor at all frequencies. | The label is nominal. Real transducers usually have frequency-dependent impedance. |
+| A headphone labeled $16\,\Omega$ behaves like a $16\,\Omega$ resistor at all frequencies. | The label is nominal. Real transducers usually have frequency-dependent impedance. |
 | If the same current flows through all series elements, the attenuation must be the same at all frequencies. | The current itself depends on the total complex impedance, which varies with frequency. |
 | Damping factor alone determines sound quality. | Damping factor is useful, but the full electromechanical system determines the outcome. |
 | A series resistor always makes the sound bass-heavy. | Not necessarily. The direction of change depends on the load impedance curve and the acoustic transfer function. |
@@ -687,9 +687,9 @@ The correct engineering conclusions are:
 1. A real headphone or loudspeaker is not a constant resistor; it is an electroacoustic transducer with frequency-dependent impedance.
 2. A series resistor and a transducer form a voltage divider whose transfer function is
 
-   \[
+   $$
    H(j\omega)=\frac{Z_L(j\omega)}{Z_s + Z_L(j\omega)}
-   \]
+   $$
 
 3. If the load impedance varies with frequency, the delivered voltage also varies with frequency.
 4. Therefore, a series resistor may alter tonal balance rather than acting as a perfectly neutral volume control.
