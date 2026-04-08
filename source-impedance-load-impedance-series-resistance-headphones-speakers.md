@@ -14,7 +14,7 @@ A common claim in audio hobbyist discussions is that adding a series resistor to
 
 ## 1. Introductory Case Study
 
-> An audio enthusiast modifies a standard 3.5 mm headphone cable by soldering a $16\,\Omega$ resistor in series with each signal path. The enthusiast argues:
+> An audio enthusiast modifies a standard 3.5 mm headphone cable by soldering a $ 16\,\Omega $ resistor in series with each signal path. The enthusiast argues:
 >
 > *"The resistor is linear and passive, so it should attenuate the signal equally at all audio frequencies. Therefore, it should reduce loudness without changing tonal balance."*
 >
@@ -685,12 +685,7 @@ The introductory claim in the case study is **not generally correct**.
 The correct engineering conclusions are:
 
 1. A real headphone or loudspeaker is not a constant resistor; it is an electroacoustic transducer with frequency-dependent impedance.
-2. A series resistor and a transducer form a voltage divider whose transfer function is
-
-   $$
-   H(j\omega)=\frac{Z_L(j\omega)}{Z_s + Z_L(j\omega)}
-   $$
-
+2. A series resistor and a transducer form a voltage divider whose transfer function is $$ H(j\omega )=\frac{Z_L(j\omega )}{Z_s+Z_L(j\omega )} $$
 3. If the load impedance varies with frequency, the delivered voltage also varies with frequency.
 4. Therefore, a series resistor may alter tonal balance rather than acting as a perfectly neutral volume control.
 5. Higher source impedance also reduces electrical damping, wastes power, and may worsen distortion in practical systems.
